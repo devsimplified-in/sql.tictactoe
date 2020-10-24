@@ -13,8 +13,8 @@
     </RootPath>
     <RootNamespace>tictactoe.database</RootNamespace>
     <AssemblyName>tictactoe.database</AssemblyName>
-    <ModelCollation>1033, CI</ModelCollation>
-    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <TargetLanguage>CS</TargetLanguage>
@@ -22,6 +22,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -56,5 +58,17 @@
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
+    <Folder Include="Tables\" />
+    <Folder Include="Stored Procedures\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Tables\tblPosition.sql" />
+    <Build Include="Tables\tblPlayer.sql" />
+    <Build Include="Tables\tblGamePlayer.sql" />
+    <Build Include="Tables\tblGame.sql" />
+    <Build Include="Tables\GamePlayerPosition.sql" />
+    <Build Include="Stored Procedures\uspCleanAndLoadMasterData2.sql" />
+    <Build Include="Stored Procedures\USP_TEST_Game.sql" />
+    <Build Include="Stored Procedures\usp_CheckWiningCondition.sql" />
   </ItemGroup>
 </Project>
